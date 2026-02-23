@@ -17,7 +17,7 @@ const storeClientData = async (req, res) => {
     });
 
     if (existingClient) {
-      return res.json(409).json({
+      return res.status(409).json({
         success: false,
         message: "Client already exists with same email or phone"
       });
