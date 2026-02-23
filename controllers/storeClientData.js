@@ -6,7 +6,7 @@ const storeClientData = async (req, res) => {
     const { name, company, email, phone, status } = req.body;
 
     if (!name || !company || !email || !phone || !status) {
-      return res.json({
+      return res.status(400).json({
         success: false,
         message: "All fields are required (name, company, email, phone, status)"
       });
@@ -17,7 +17,7 @@ const storeClientData = async (req, res) => {
     });
 
     if (existingClient) {
-      return res.json({
+      return res.json(409).json({
         success: false,
         message: "Client already exists with same email or phone"
       });
@@ -31,7 +31,7 @@ const storeClientData = async (req, res) => {
       status
     });
 
-    return res.json({
+    return res.status(200).json({
       success: true,
       message: "Client added successfully"
       
@@ -40,7 +40,7 @@ const storeClientData = async (req, res) => {
   } catch (error) {
 
     if (error.code === 11000) {
-      return res.json({
+      return res.status(409).json({
         success: false,
         message: "Duplicate email or phone detected"
       });
@@ -48,8 +48,7 @@ const storeClientData = async (req, res) => {
 
     console.error("Unexpected Error:", error);
 
-    return res.json({
-      success: false,
+    return res.status(500).json({
       message: "Internal Server Error"
     });
   }
