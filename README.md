@@ -163,13 +163,13 @@ Failure Cases:
 ## Running the Project Locally
 
 1. Clone the repository:
-   git clone <repository-url>
+   >git clone <repository-url>
 
 2. Install dependencies:
-   npm install
+   >npm install
 
 3. Start the server:
-   npm start
+   >npm start
 
 4. Access the API at:
    http://localhost:3006
