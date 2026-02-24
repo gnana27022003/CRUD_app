@@ -169,7 +169,7 @@ Failure Cases:
    >npm install
 
 3. Start the server:
-   >npm start
+   >node app.js
 
 4. Access the API at:
    http://localhost:3006
