@@ -6,15 +6,8 @@ const {updateClientData} = require('../controllers/updateClientData')
 const {deleteClientData} = require('../controllers/deleteClientData')
 const { getClientData } = require('../controllers/getClientData')
 
-router.get('/',async(req,res)=>{
-    res.json({
-        "message":"Enter Client details to access"
-    })
-})
 
-router.post('/api/clients',async(req,res)=>{
-    await storeClientData(req,res)
-})
+router.post('/api/clients',storeClientData)
 
 router.get('/api/clients',getClientData)
 
